@@ -276,6 +276,8 @@ if submit_button:
         video_file = open('trailer.mp4', 'rb')
         video_bytes = video_file.read()
 
+        components.html('<iframe src="https://caramel-lofty-newsprint.glitch.me/" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=390)
+
         diffs = []
 
         # for each company in the list, get the company information
@@ -300,7 +302,8 @@ if submit_button:
                     highs, lows = print_object_attributes_timeseries(highs, lows, obj)
                 
                 except:
-                    st.write("Error", company, count)
+                    continue
+                    # st.write("Error", company, count)
 
                 count += 1
 
@@ -314,8 +317,6 @@ if submit_button:
             diffs.append(decimals)
 
         # st.write("Differences: ", diffs)
-
-        components.html('<iframe src="https://caramel-lofty-newsprint.glitch.me/" style="position: absolute; height: 100%; width: 100%; border: none"></iframe>', height=390)
 
         # components.html(
         #     '''
